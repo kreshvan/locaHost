@@ -14,11 +14,15 @@ import java.util.List;
 @Component
 public class EmployeeService implements EmployeesService {
     static final int MaxEmployees = 1000;
-    List<Employee> employeesList = new ArrayList<>();
+    List<Employee> employeesList = new ArrayList<>(List.of(
+            new Employee("Atljh ","Фапих","123"),
+            new Employee("wer","wer","3")
+    ));
+
 
     @Override
-    public Employee add(String firsName, String lastName) {
-        Employee employee = new Employee(lastName, firsName);
+    public Employee add(String firsName, String lastName, String passport) {
+        Employee employee = new Employee(lastName, firsName, passport);
         if (employeesList.size() > MaxEmployees) {
             throw new EmployeeStorageIsFullException("Превышен лимит сотрудников!");
         }
@@ -31,8 +35,8 @@ public class EmployeeService implements EmployeesService {
     }
 
     @Override
-    public Employee remove(String firsName, String lastName) {
-        Employee employee = new Employee(lastName, firsName);
+    public Employee remove(String firsName, String lastName,String passport) {
+        Employee employee = new Employee(lastName, firsName, passport);
         if (employeesList.contains(employee)) {
             employeesList.remove(employee);
             return employee;
@@ -41,8 +45,8 @@ public class EmployeeService implements EmployeesService {
     }
 
     @Override
-    public Employee find(String firsName, String lastName) {
-        Employee employee = new Employee(firsName, lastName);
+    public Employee find(String firsName, String lastName, String passport) {
+        Employee employee = new Employee(firsName, lastName, passport);
         if (employeesList.contains(employee)) {
             return employee;
         }
@@ -50,10 +54,25 @@ public class EmployeeService implements EmployeesService {
     }
 
     public Collection<Employee> fullEmployees() {
+
         return Collections.unmodifiableList(employeesList);
     }
 
-}
+
+
+    @Override
+    public String getPassport(String passport) {
+        for (Employee employee : employeesList) {
+            if (employee.getPassport().equals(passport)) {
+
+                final String employeesList = employee.firstName + employee.lastName + employee.passport;
+                return employeesList;
+            }
+        }
+        throw new RuntimeException("неверно введен номер паспорта!");
+    }
+    }
+
 
 
 

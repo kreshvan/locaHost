@@ -1,20 +1,17 @@
 
 package me.Dmitriev.DZ.SPRING;
 
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 public interface EmployeesService {
-    Employee add(String firstName, String lastName);
+    Employee add(String firstName, String lastName, String passport);
 
-    Employee remove(String firstName, String lastName);
+    Employee remove(String firstName, String lastName, String passport);
 
-    Employee find(String firstName, String lastName);
+    Employee find(String firstName, String lastName, String passport);
 
     List<Employee> fullEmployees = null;
+
+    String getPassport(String passport);
 }
 

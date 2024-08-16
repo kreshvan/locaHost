@@ -20,28 +20,34 @@ class EmployeesController {
 
     @GetMapping("/add")
     public Employee add(@RequestParam String firsName,
-                        @RequestParam String lastName) {
-        return employeeService.add(firsName, lastName);
+                        @RequestParam String lastName,
+                        @RequestParam String passport) {
+        return employeeService.add(firsName, lastName , passport);
     }
 
     @GetMapping("/remove")
     public Employee remove(@RequestParam String firsName,
-                           @RequestParam String lastName) {
-        return employeeService.remove(firsName, lastName);
+                           @RequestParam String lastName,
+                           @RequestParam String passport) {
+        return employeeService.remove(firsName, lastName, passport);
     }
 
     @GetMapping("/find")
     public Employee find(@RequestParam String firsName,
-                         @RequestParam String lastName) {
-        return employeeService.find(firsName, lastName);
+                         @RequestParam String lastName,
+                         @RequestParam String passport) {
+        return employeeService.find(firsName, lastName,passport);
     }
 
     @GetMapping("/fullEmployees")
     public Collection<Employee> fullEmployees() {
         return employeeService.fullEmployees;
     }
+    @GetMapping("/passport")
+    public String getPassport(@RequestParam("passport") String passport) {
+return employeeService.getPassport(passport);
 
-
+    }
 }
 
 

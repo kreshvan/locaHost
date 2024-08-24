@@ -14,6 +14,11 @@ public class Employee {
         this.passport = passport;
     }
 
+public String getFullName(){
+        return firstName+lastName+passport;
+}
+
+
     public String getFirstName() {
 
         return firstName;

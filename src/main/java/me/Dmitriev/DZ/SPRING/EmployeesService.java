@@ -1,6 +1,7 @@
 
 package me.Dmitriev.DZ.SPRING;
 
+import java.util.Collection;
 import java.util.List;
 
 public interface EmployeesService {
@@ -13,5 +14,7 @@ public interface EmployeesService {
     List<Employee> fullEmployees = null;
 
     String getPassport(String passport);
+
+    Collection<Employee> findAll();
 }
 

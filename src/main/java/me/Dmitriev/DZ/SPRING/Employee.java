@@ -7,11 +7,17 @@ public class Employee {
     String firstName;
     String lastName;
     String passport;
+    String salary;
+    String department;
 
-    public Employee(String firstName, String lastName, String passport) {
+
+
+    public Employee(String firstName, String lastName, String passport,String salary,String department) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.passport = passport;
+        this.salary = salary;
+        this.department = department;
     }
 
 public String getFullName(){
@@ -29,7 +35,15 @@ public String getFullName(){
         return lastName;
     }
     public String getPassport(){
+
         return passport;
+    }
+    public String getSalary(){
+        return salary;
+    }
+
+    public String getDepartment() {
+        return department;
     }
 
     public void setFirstName() {
@@ -44,6 +58,14 @@ public String getFullName(){
     public void setPassport() {
 
         this.passport = passport;
+    }
+
+    public void setSalary(String salary) {
+        this.salary = salary;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
     }
 
     @Override

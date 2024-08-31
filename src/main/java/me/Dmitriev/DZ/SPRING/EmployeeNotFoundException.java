@@ -10,7 +10,6 @@ public class EmployeeNotFoundException extends RuntimeException {
 
     public EmployeeNotFoundException(String sms) {
         super(sms);
-
     }
 
 }

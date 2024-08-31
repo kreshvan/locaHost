@@ -1,6 +1,7 @@
 
 package me.Dmitriev.DZ.SPRING;
 
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
@@ -9,6 +10,7 @@ import java.util.*;
 
 @Service
 @Component
+@ComponentScan
 public abstract class EmployeeService implements EmployeesService {
 
     Map<String,Employee> employeesMap = Map.of();
@@ -18,8 +20,8 @@ public abstract class EmployeeService implements EmployeesService {
 
 
     @Override
-    public Employee add(String firsName, String lastName, String passport) {
-        Employee employee = new Employee(lastName, firsName, passport);
+    public Employee add(String firsName, String lastName, String passport,String salary,String department) {
+        Employee employee = new Employee(lastName, firsName, passport,salary,department);
 
         if (employeesMap.containsKey(employee.getFullName())) {
             throw new EmployeeAlreadyAddedException("Такой сотрудник уже существует!");
@@ -30,8 +32,8 @@ public abstract class EmployeeService implements EmployeesService {
     }
 
     @Override
-    public Employee remove(String firsName, String lastName,String passport) {
-        Employee employee = new Employee(lastName, firsName, passport);
+    public Employee remove(String firsName, String lastName, String passport, String salary, String department) {
+        Employee employee = new Employee(lastName, firsName, passport,salary,department);
         if (employeesMap.containsKey(employee.getFullName())) {
             employeesMap.remove(employee.getFullName());
             return employee;
@@ -40,8 +42,8 @@ public abstract class EmployeeService implements EmployeesService {
     }
 
     @Override
-    public Employee find(String firsName, String lastName, String passport) {
-        Employee employee = new Employee(firsName, lastName, passport);
+    public Employee find(String firsName, String lastName, String passport, String salary, String department) {
+        Employee employee = new Employee(firsName, lastName, passport, salary, department);
         if (employeesMap.containsKey(employee.getFullName())) {
             return employeesMap.get(employee.getFullName());
         }

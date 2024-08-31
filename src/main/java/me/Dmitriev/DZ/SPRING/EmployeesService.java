@@ -9,12 +9,19 @@ public interface EmployeesService {
 
     Employee remove(String firstName, String lastName, String passport);
 
+    Employee add(String firsName, String lastName, String passport, String salary, String department);
+
+    Employee remove(String firsName, String lastName, String passport, String salary, String department);
+
     Employee find(String firstName, String lastName, String passport);
 
     List<Employee> fullEmployees = null;
 
     String getPassport(String passport);
 
+    Employee find(String firsName, String lastName, String passport, String salary, String department);
+
     Collection<Employee> findAll();
+
 }
 

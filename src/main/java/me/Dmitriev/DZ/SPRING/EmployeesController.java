@@ -2,13 +2,16 @@
 package me.Dmitriev.DZ.SPRING;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Collection;
 
 @org.springframework.web.bind.annotation.RestController
+@ComponentScan
 @RequestMapping("/employee")
 class EmployeesController {
     private final EmployeesService employeeService;

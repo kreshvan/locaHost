@@ -11,16 +11,25 @@ import java.util.*;
 @Service
 @Component
 @ComponentScan
-public abstract class EmployeeService implements EmployeesService {
+public  class EmployeeService implements EmployeesService {
 
-    Map<String,Employee> employeesMap = Map.of();
-
-
+    Map<String,Employee> employeesMap = new HashMap<>(Map.of());
 
 
 
     @Override
-    public Employee add(String firsName, String lastName, String passport,String salary,String department) {
+    public Employee add(String firstName, String lastName, String passport) {
+        return null;
+    }
+
+    @Override
+    public Employee remove(String firstName, String lastName, String passport) {
+
+        return null;
+    }
+
+    @Override
+    public Employee add(String firsName, String lastName, String passport,int salary,int department) {
         Employee employee = new Employee(lastName, firsName, passport,salary,department);
 
         if (employeesMap.containsKey(employee.getFullName())) {
@@ -32,7 +41,12 @@ public abstract class EmployeeService implements EmployeesService {
     }
 
     @Override
-    public Employee remove(String firsName, String lastName, String passport, String salary, String department) {
+    public Employee add(String firsName, String lastName, String passport, String salary, String department) {
+        return null;
+    }
+
+    @Override
+    public Employee remove(String firsName, String lastName, String passport, int salary, int department) {
         Employee employee = new Employee(lastName, firsName, passport,salary,department);
         if (employeesMap.containsKey(employee.getFullName())) {
             employeesMap.remove(employee.getFullName());
@@ -42,7 +56,19 @@ public abstract class EmployeeService implements EmployeesService {
     }
 
     @Override
-    public Employee find(String firsName, String lastName, String passport, String salary, String department) {
+    public Employee find(String firstName, String lastName, String passport) {
+
+        return null;
+    }
+
+    @Override
+    public String getPassport(String passport) {
+
+        return "";
+    }
+
+    @Override
+    public Employee find(String firsName, String lastName, String passport, int salary, int department) {
         Employee employee = new Employee(firsName, lastName, passport, salary, department);
         if (employeesMap.containsKey(employee.getFullName())) {
             return employeesMap.get(employee.getFullName());

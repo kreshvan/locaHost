@@ -9,9 +9,11 @@ public interface EmployeesService {
 
     Employee remove(String firstName, String lastName, String passport);
 
+    Employee add(String firstName, String lastName, String passport, int salary, int department);
+
     Employee add(String firsName, String lastName, String passport, String salary, String department);
 
-    Employee remove(String firsName, String lastName, String passport, String salary, String department);
+    Employee remove(String firsName, String lastName, String passport, int salary, int department);
 
     Employee find(String firstName, String lastName, String passport);
 
@@ -19,7 +21,9 @@ public interface EmployeesService {
 
     String getPassport(String passport);
 
-    Employee find(String firsName, String lastName, String passport, String salary, String department);
+
+
+    Employee find(String firsName, String lastName, String passport, int salary, int department);
 
     Collection<Employee> findAll();
 

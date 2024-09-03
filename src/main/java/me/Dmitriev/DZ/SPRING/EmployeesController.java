@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.Collection;
 
 @org.springframework.web.bind.annotation.RestController
-@ComponentScan
+
 @RequestMapping("/employee")
 class EmployeesController {
     private final EmployeesService employeeService;

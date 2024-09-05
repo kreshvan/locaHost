@@ -11,8 +11,7 @@ public class Employee {
     int department;
 
 
-
-    public Employee(String firstName, String lastName, String passport,int salary,int department) {
+    private Employee(String firstName, String lastName, String passport, int salary, int department) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.passport = passport;
@@ -20,9 +19,14 @@ public class Employee {
         this.department = department;
     }
 
-public String getFullName(){
-        return firstName+lastName+passport;
-}
+    public static Employee createEmployee(String firstName, String lastName, String passport, int salary, int department) {
+        return new Employee(firstName, lastName, passport, salary, department);
+    }
+
+
+    public String getFullName() {
+        return firstName + lastName + passport;
+    }
 
 
     public String getFirstName() {
@@ -34,11 +38,13 @@ public String getFullName(){
 
         return lastName;
     }
-    public String getPassport(){
+
+    public String getPassport() {
 
         return passport;
     }
-    public int getSalary(){
+
+    public int getSalary() {
         return salary;
     }
 
@@ -55,6 +61,7 @@ public String getFullName(){
 
         this.lastName = lastName;
     }
+
     public void setPassport() {
 
         this.passport = passport;

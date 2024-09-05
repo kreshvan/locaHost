@@ -16,7 +16,6 @@ public class DzSpringApplication {
 
         SpringApplication.run(DzSpringApplication.class, args);
 
-
     }
 
 }

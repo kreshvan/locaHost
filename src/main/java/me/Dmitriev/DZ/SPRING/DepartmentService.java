@@ -18,29 +18,39 @@ public class DepartmentService {
         this.employeeService = employeeService;
     }
 
-    public Employee maxSalary(int departmentId) {
-
+    public Employee maxSalary(int department) {
         return employeeService.findAll().stream()
-                .filter(emp->emp.getDepartment()==departmentId)
-                .max(Comparator.comparingDouble(x -> x.getSalary()))
+                .filter(emp -> emp.getDepartment() == department)
+                .max(Comparator.comparingDouble(emp -> emp.getSalary()))
                 .orElseThrow();
     }
 
-    public Employee minSalary(int departmentId) {
+    public Employee minSalary(int department) {
         return employeeService.findAll().stream()
-                .filter(emp->emp.getDepartment()==departmentId)
-                .min(Comparator.comparingDouble(x -> x.getSalary()))
+                .filter(emp -> emp.getDepartment() == department)   //берем сотрудника.
+                // вызываем его отдел.
+                // отдел должен быть равен одному из отделов в списке - листе
+                .min(Comparator.comparingDouble(emp -> emp.getSalary()))
                 .orElseThrow();
     }
 
-    public List<Employee> allDepartment(int departmentId) {
+    public List<Employee> allEmployeeDepartment(int department) {
         return employeeService.findAll().stream()
-                .filter(employee -> employee.getDepartment()==departmentId)
+                .filter(emp -> emp.department == department)
                 .collect(Collectors.toList());
     }
 
-    public Map<Integer,List<Employee>> allDepartments() {
+    public Map<Integer, List<Employee>> allDepartments() {
         return employeeService.findAll().stream()
-                .collect(Collectors.groupingBy(employee -> employee.getDepartment()));
+                .collect(Collectors.groupingBy(emp -> emp.getDepartment()));
     }
+
+
 }
+
+
+
+
+
+
+

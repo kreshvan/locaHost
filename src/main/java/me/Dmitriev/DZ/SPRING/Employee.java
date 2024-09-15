@@ -1,6 +1,9 @@
 package me.Dmitriev.DZ.SPRING;
 
 
+import ch.qos.logback.core.util.StringUtil;
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.Objects;
 
 public class Employee {
@@ -10,15 +13,25 @@ public class Employee {
     int salary;
     int department;
 
+    public Employee (String firstName, String lastName){
+        this.firstName = checkStringIsAlpha(firstName);
+        this.lastName = checkStringIsAlpha(lastName);
+    }
 
     private Employee(String firstName, String lastName, String passport, int salary, int department) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+
+        this.firstName = checkStringIsAlpha(firstName);
+        this.lastName = checkStringIsAlpha(lastName);
         this.passport = passport;
         this.salary = salary;
         this.department = department;
     }
-
+    public String checkStringIsAlpha(String strings) {
+        if (!StringUtils.isAlpha(firstName) || !StringUtils.isAlpha(lastName)) {
+throw new RuntimeException();
+        }
+        return StringUtils.capitalize(strings);
+    }
     public static Employee createEmployee(String firstName, String lastName, String passport, int salary, int department) {
         return new Employee(firstName, lastName, passport, salary, department);
     }
@@ -54,12 +67,12 @@ public class Employee {
 
     public void setFirstName() {
 
-        this.firstName = firstName;
+        this.firstName = checkStringIsAlpha(firstName);
     }
 
     public void setLastName(String lastName) {
 
-        this.lastName = lastName;
+        this.lastName = checkStringIsAlpha(lastName);;
     }
 
     public void setPassport() {

@@ -8,13 +8,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootApplication
+
 public class DzSpringApplication {
 
     public static void main(String[] args) {
 
 
         SpringApplication.run(DzSpringApplication.class, args);
-
 
     }
 
